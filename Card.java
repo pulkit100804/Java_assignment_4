@@ -42,5 +42,26 @@ public class Card {
         }
         System.out.println("Card not found.");
     }
-}
-  
+      // Shuffle the deck randomly
+    public void shuffleDeck() {
+        Random rand = new Random();
+        for (int i = 0; i < 52; i++) {
+            int j = rand.nextInt(52);
+            // Swap cards[i] and cards[j]
+            Card temp = cards[i];
+            cards[i] = cards[j];
+            cards[j] = temp;
+        }
+        System.out.println("Deck shuffled!");
+    }
+
+    // Deal 5 random cards
+    public void dealCard() {
+        Random rand = new Random();
+        System.out.println("Dealing 5 Random Cards:");
+        for (int i = 0; i < 5; i++) {
+            int index = rand.nextInt(52);
+            cards[index].printCard();
+        }
+    }
+}  
