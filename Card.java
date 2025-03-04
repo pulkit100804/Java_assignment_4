@@ -11,4 +11,36 @@ public class Card {
     public void printCard() {
         System.out.println(rank + " of " + suit);
     }
+    
+    // Create a deck of 52 cards
+    public void createDeck() {
+        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+        String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+
+        int index = 0;
+        for (String suit : suits) {
+            for (String rank : ranks) {
+                cards[index++] = new Card(rank, suit);
+            }
+        }
+    }
+
+    // Print all cards in the deck
+    public void printDeck() {
+        for (int i = 0; i < 52; i++) {
+            cards[i].printCard();
+        }
+    }
+
+    // Find a specific card in the deck
+    public void findCard(String rank, String suit) {
+        for (int i = 0; i < 52; i++) {
+            if (cards[i].rank.equals(rank) && cards[i].suit.equals(suit)) {
+                System.out.println("Card found: " + rank + " of " + suit);
+                return;
+            }
+        }
+        System.out.println("Card not found.");
+    }
 }
+  
